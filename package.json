@@ -1,0 +1,34 @@
+{
+  "name": "react-socket",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node server.js",
+    "build": "node scripts/build.js",
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkdinh/ReactSocket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mkdinh/ReactSocket/issues"
+  },
+  "homepage": "https://github.com/mkdinh/ReactSocket#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "mongoose": "^4.13.7",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^2.0.4"
+  }
+}

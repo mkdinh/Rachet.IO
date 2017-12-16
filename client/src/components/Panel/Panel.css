@@ -1,0 +1,9 @@
+.Panel{
+    height: 100%;
+    padding: 0;
+    overflow: hidden
+}  
+
+.Panel-header {
+    background-color: #ee442b;
+}
