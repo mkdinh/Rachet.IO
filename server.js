@@ -36,10 +36,9 @@ const indexFile = path.join(__dirname, "./client/build/index.html");
 app.use(express.static(indexFile));
 
 // // serve index.html to the browser
-// app.use((req , res) => {
-//     console.log('hey')
-//     res.sendFile(indexFile)
-// })
+app.use((req , res) => {
+    res.sendFile(indexFile)
+})
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
