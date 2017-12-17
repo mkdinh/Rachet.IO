@@ -44,7 +44,7 @@ export default class DisplayRoom extends Component {
     render() {
         const users = this.props.users || [];
         const roomList = this.props.roomList || [];
-        console.log(roomList)
+        
         return (
             <List style={style.list} divided celled>
                 {this.props.admin ? <List.Item as="div" style={style.item}>

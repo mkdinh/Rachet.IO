@@ -7,7 +7,7 @@ const server = http.createServer(app);
 const PORT = process.env.PORT || 3001;
 const IO = require("socket.io");
 const router = require("./routes")
-const io = IO(server);
+const io = IO().listen(server);
 const path = require("path");
 const mongoose = require("mongoose")
 const passport = require("passport");
@@ -63,7 +63,7 @@ io.of("/chat").on("connection", socket => {
         name: "",
         cRoom: "lobby",
         connect: true
-    }
+    };
 
     // on connection, emit welcoming message
     socket.emit("initialize", socket.user);    

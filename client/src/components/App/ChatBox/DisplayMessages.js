@@ -22,14 +22,14 @@ export default class DisplayMessage extends Component {
         const posts = this.props.cRoom.posts || [];
         
         return ( 
-            <List ref>
+            <Transition.Group as={List} animation="fade" duration={250} ref>
                 {posts.map(post =>
                 <List.Item key={post._id}>
                     <span style={style.poster}>{`${post.created_by}: `}</span>
                     <span style={style.msg}>{post.message}</span>
                 </List.Item>)}
                 <div ref="bottom"/>
-            </List>
+            </Transition.Group>
         )
     }
 }

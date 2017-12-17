@@ -20,8 +20,8 @@ class Navbar extends Component {
     }else{
       this.setState({ activeItem: name });
     };
-
-    this.props.history.push(name);
+    console.log(this.props)
+    this.props.history.replace("/" + name);
   }
 
   handleLogout = () => {

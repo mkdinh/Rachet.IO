@@ -26,6 +26,7 @@ module.exports = {
             db.Room.find({})
             .then(doc => res.json(doc))
             .catch(err => console.log(err)))
+        .catch(err => console.log(err));
     },
 
     deleteOne: (req, res) => {
@@ -36,5 +37,6 @@ module.exports = {
             db.Room.find({})
             .then(doc => res.json(doc))
             .catch(err => console.log(err)))
+        .catch(err => console.log(err));
     }
 }

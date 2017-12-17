@@ -24,14 +24,15 @@ const style = {
 class ChatBoxApp extends Component {
 
     state = {
-        name: "Michael",
+        name: "",
         cRoom: false,
         loading: false
     }
     
     componentDidMount(){
         this.props.dispatch(actions.Room.findAll())
-        .then(db => this.selectName("Michael"))
+        .then(db => this.selectName("Mike"))
+        .catch(err => console.log(err));
     }
 
     // handle name submit
@@ -100,7 +101,7 @@ class ChatBoxApp extends Component {
         const notification = <h2 style={style.notification}>Select a room to join the conversation</h2>
 
         const users = this.props.users.filter(el => el.cRoom._id === cRoom._id) || [];
-        console.log(users)
+  
         return(
             <div>
                 <Panel fluid as="h3" 
