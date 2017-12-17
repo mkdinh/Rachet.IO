@@ -30,7 +30,7 @@ mongoose.connect(process.env.MONGODB_URI || LOCAL_URI, {
 // Configure Express
 //--------------------------------------------------------
 
-const indexFile = path.join(__dirname, "./client/build/index.html");
+const indexFile = path.join(__dirname, "./client/build/");
 
 // allow express to use static files from yarn build
 app.use(express.static(indexFile));
