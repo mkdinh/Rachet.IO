@@ -43,14 +43,15 @@ export default class DisplayRoom extends Component {
     
     render() {
         const users = this.props.users || [];
-
+        const roomList = this.props.roomList || [];
+        console.log(roomList)
         return (
             <List style={style.list} divided celled>
                 {this.props.admin ? <List.Item as="div" style={style.item}>
                     <RoomForm createRoom={this.props.createRoom}/>
                 </List.Item> : null}
 
-                {this.props.roomList.map(room =>
+                {roomList.map(room =>
                     <List.Item as="a" onClick={() => this.handleClick(room._id)} 
                     key={room._id} 
                     style={style.item}>

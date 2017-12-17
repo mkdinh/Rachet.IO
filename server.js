@@ -7,7 +7,7 @@ const server = http.createServer(app);
 const PORT = process.env.PORT || 3001;
 const IO = require("socket.io");
 const router = require("./routes")
-const io = new IO(server);
+const io = IO(server);
 const path = require("path");
 const mongoose = require("mongoose")
 const passport = require("passport");
@@ -35,19 +35,14 @@ const indexFile = path.join(__dirname, "./client/build/index.html");
 // allow express to use static files from yarn build
 app.use(express.static(indexFile));
 
-// // serve index.html to the browser
-app.use((req , res) => {
-    res.sendFile(indexFile)
-})
-
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use(session({
     secret: "rachet",
-    resave: true,
-    saveUninitialized: true
+    resave: false,
+    saveUninitialized: false
 }));
 
 app.use(passport.initialize());
