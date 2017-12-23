@@ -2,12 +2,10 @@
 //--------------------------------------------------------
 const express = require("express");
 const app = express();
-const http = require("http");
-const server = http.createServer(app);
+const server = require("http").Server(app);
 const PORT = process.env.PORT || 3001;
-const IO = require("socket.io");
+const io = require("socket.io")(server);
 const router = require("./routes")
-const io = IO().listen(server);
 const path = require("path");
 const mongoose = require("mongoose")
 const passport = require("passport");
@@ -57,7 +55,7 @@ app.use(router);
 io.of("/chat").on("connection", socket => {
 
     const chat = io.of("/chat");
-    
+
     socket.user = {
         id: socket.client.id,
         name: "",
@@ -107,6 +105,17 @@ io.of("/chat").on("connection", socket => {
         socket.user.connect = false;
         updateRoster();
     });
+
+    socket.on("update-poll", () => {
+        console.log("hey")
+        poll.emit("update-poll")
+    })
+});
+
+io.of("/poll").on("connection", socket => {
+
+    const poll = io.of("/poll");
+    socket.on("update-poll", id => poll.emit("update-poll", id));
 })
 
 // Start Server

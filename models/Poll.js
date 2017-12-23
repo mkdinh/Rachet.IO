@@ -6,14 +6,14 @@ const Schema = mongoose.Schema;
 // Create new User Schema
 //--------------------------------------------------------
 const PollSchema = new Schema({
-    name: {
+    title: {
         type: String,
         require: true
     },
 
     data: {
         type: Schema.Types.Mixed,
-        require: true
+        default: []
     },
 
     type: {
@@ -21,10 +21,19 @@ const PollSchema = new Schema({
         require: true
     },
 
-    created_by: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-        require: true
+    options: {
+        type: Schema.Types.Mixed,
+        default: {
+            axisLabels: { x: "", y: "" },
+            scale: { width: 0.75, height: 1.05, radius: 0.25, innerRadius: 0 },
+            axes: true,
+            grid: true
+        }
+    },
+
+    created_timestamp: {
+        type: Date,
+        default: Date.now
     }
 });
 

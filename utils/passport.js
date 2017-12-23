@@ -45,15 +45,12 @@ module.exports = {
 
     serialize: () => {
         passport.serializeUser( (user, done) => {
-             console.log("serialize")
             return done(null, user._id);
         });
     },
 
     deserialize: () => {
-        passport.deserializeUser( (id, done) => {
-            console.log("deserialize")
-            
+        passport.deserializeUser( (id, done) => {  
             db.User.findById(id)
                 .then( user => {
                     if(!user){ done(null)}

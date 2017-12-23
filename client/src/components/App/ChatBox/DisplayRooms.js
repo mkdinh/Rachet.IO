@@ -1,7 +1,7 @@
 // Import React
 //--------------------------------------------------------
 import React, { Component } from "react";
-import { Transition, List, Icon } from "semantic-ui-react";
+import { List, Icon } from "semantic-ui-react";
 import RoomForm from "../../Form/Room";
 
 const style = {

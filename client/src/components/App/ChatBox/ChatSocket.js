@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import io from "socket.io-client";
 import socketListener from "./ChatEvents";
 import actions from "../../../utils/actions";
@@ -29,7 +29,7 @@ export default (Component) => {
             socketListener(this.socket, this);
         }
            
-        connectToLobby = (name) => this.socket.emit("connect to lobby", name);
+        connectToLobby = (name) => this.socket.emit("connect to lobby", name)
         
         connectToRoom = (room) => this.socket.emit("connect to room", room)
         

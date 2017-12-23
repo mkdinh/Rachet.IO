@@ -1,17 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import { Segment } from "semantic-ui-react";
 import Header from "./PanelHeader";
-import CSSModules from "react-css-modules";
-import styles from "./Panel.css"
+import "./Panel.css"
 
 const Panel = (props) => {
     
     const style = {
-        padding: props.fluid ? 0 : "1rem"
+        padding: props.fluid ? 0 : "1rem",
+        width: props.width
     }
-    console
+
     return (
-        <Segment loading={props.loading} style={style} >
+        <Segment loading={props.loading} style={{style, ...props.style}} >
             <Header fluid={props.fluid} 
             rightItem={props.rightItem} 
             color={props.color} 

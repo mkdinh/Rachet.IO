@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "semantic-ui-react";
 
 export default (props) => {
 
@@ -9,6 +10,6 @@ export default (props) => {
     }
 
     return (
-        <a href="#" onClick={handleClick}>Return to lobby</a> : null
+        <Button basic onClick={handleClick}>Return to lobby</Button>
     )
 }

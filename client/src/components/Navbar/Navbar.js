@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu, Segment, Popup, Responsive } from 'semantic-ui-react'
+import { Menu, Popup, Responsive, Checkbox } from 'semantic-ui-react'
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import LoginForm from "../Form/Login";
@@ -20,7 +20,6 @@ class Navbar extends Component {
     }else{
       this.setState({ activeItem: name });
     };
-    console.log(this.props)
     this.props.history.replace("/" + name);
   }
 
@@ -30,9 +29,10 @@ class Navbar extends Component {
     .catch(err => console.log(err));
   }
 
+  toggleView = () => this.props.dispatch(actions.User.toggleView());
+
   render() {
     const { activeItem } = this.state;
-    const login = this.props.user ? this.props.user.login : null;
     const name = this.props.user ? this.props.user.name : null;
     const privilege = this.props.user ? this.props.user.privilege : null;
 
@@ -45,13 +45,14 @@ class Navbar extends Component {
             <Menu.Item data-name="Socket Canvas" icon="game" link active={activeItem === "Socket Canvas"} onClick={this.handleItemClick} />
             <Menu.Item data-name="Powerpoint" icon="file powerpoint outline" link active={activeItem === "Powerpoint"} onClick={this.handleItemClick} />
 
-              {login ? 
+              {privilege === 3 ? 
                 <Menu.Menu position='right'>
                   <Menu.Item style={style.bold} name={`Hello ${name}`} link={false} />
                   <Menu.Item name='Logout' active={activeItem === "Logout"} onClick={this.handleLogout} />
                 </Menu.Menu>
               : 
-                <Menu.Menu position='right'>
+              <Menu.Menu position='right'>
+                  <Checkbox onChange={this.toggleView} toggle/>
                   <Popup
                   trigger={<Menu.Item icon="user"/>}
                   content={<LoginForm/>}
@@ -68,8 +69,12 @@ class Navbar extends Component {
             <Menu.Item name="Socket Canvas" link active={activeItem === "Socket Canvas"} onClick={this.handleItemClick} />
             <Menu.Item name="Powerpoint" link active={activeItem === "Powerpoint"} onClick={this.handleItemClick} />
 
-              {login ? 
+              {privilege === 3 ? 
                 <Menu.Menu position='right'>
+                  <Menu.Item style={{ padding: "0.6rem 1rem" }}>
+                    <Checkbox onChange={this.toggleView} toggle/>
+                    <span style={{fontWeight: "bold", margin: "0 1rem"}}>Admin View</span>
+                  </Menu.Item>
                   <Menu.Item style={style.bold} name={`Hello ${name}`} link={false} />
                   <Menu.Item name='Logout' active={activeItem === "Logout"} onClick={this.handleLogout} />
                 </Menu.Menu>

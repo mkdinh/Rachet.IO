@@ -1,12 +1,12 @@
 import React from "react";
 import { Header } from "semantic-ui-react";
-import styles from "./Panel.css"
+import "./Panel.css"
 
 const PanelHeader = (props) => {
 
     const style = {
-        header: { margin: props.fluid ? "1rem" : 0 },
-        right: {float: "right"}
+        header: { margin: props.fluid ? "1rem" : 0, display: "flex", alignItems: "center" },
+        right: { display: "flex", "flexGrow": 1, flexDirection: "row-reverse" }
     }
 
     return (

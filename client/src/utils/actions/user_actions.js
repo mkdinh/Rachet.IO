@@ -25,5 +25,7 @@ export default {
             })
             .catch(err => {throw err.response.data.message})
         )
-    }
+    },
+
+    toggleView: () =>  dispatch => dispatch({ type: "TOGGLE_VIEW" })
 }

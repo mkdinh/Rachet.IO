@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Form, Segment, Button } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 
 const style = {
     wrapper: { marginLeft: 0, marginRight: 0 },
@@ -53,8 +53,8 @@ class InputForm extends Component {
     render() {
 
         const message = this.state.message;
-        const error = this.state.error;
         const loading = this.state.loading;
+        
         return (
             
             <Form style={style.form}>

@@ -1,10 +1,12 @@
 // Import dependencies
 //--------------------------------------------------------
 import React, { Component } from "react";
-import { Container, Grid } from "semantic-ui-react";
-import Panel from "../../components/Panel";
+import { Container } from "semantic-ui-react";
 import PollGraph from "../../components/App/PollGraph";
 import "./Poll.css";
+
+const style = {
+}
 
 // Create stateful home page component
 //--------------------------------------------------------
@@ -15,22 +17,9 @@ export default class Poll extends Component {
     // render DOM
     render(){
 
-        const name = this.state.name;
-        const messages = this.state.messages;
-
         return(
-            <Container>
-                <Grid className="Chat-wrapper">
-                    <Grid.Row columns={2}>
-                        <Grid.Column only="computer tablet" width={3}>
-                        </Grid.Column>
-                        <Grid.Column computer={10} mobile={16}>
-                            <PollGraph/>
-                        </Grid.Column>
-                        <Grid.Column only="computer tablet" width={3}>
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
+            <Container style={style.wrapper}>
+                <PollGraph/>
             </Container>
         )
     }

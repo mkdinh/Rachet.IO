@@ -1,7 +1,7 @@
 // Import React
 //--------------------------------------------------------
 import React, { Component } from "react";
-import { Grid, Divider, Segment } from "semantic-ui-react";
+import { Divider } from "semantic-ui-react";
 import { connect } from "react-redux";
 import NameModal from "../../Modal/Chat";
 import Panel from "../../Panel"
@@ -24,7 +24,7 @@ const style = {
 class ChatBoxApp extends Component {
 
     state = {
-        name: "",
+        name: "Mike",
         cRoom: false,
         loading: false
     }
@@ -72,7 +72,7 @@ class ChatBoxApp extends Component {
             // change state cRoom to lobby
             this.props.dispatch(actions.Room.returnToLobby())
             .then(() => {
-                cb ? cb() : null
+                if(cb){ cb() }
             })          
         }
 
@@ -94,7 +94,6 @@ class ChatBoxApp extends Component {
         const roomList = this.props.roomList || [];
         const cRoom = this.props.cRoom || false;
         const cUser = this.props.cUser || {};
-        const login = this.props.user.login;
         const privilege = this.props.user.privilege;
         const loading = this.state.loading;
         
@@ -108,7 +107,7 @@ class ChatBoxApp extends Component {
                 loading={!this.props.roomList || loading}
                 color="blue" 
                 rightItem={<SelectLobby toggleLoader={this.toggleLoader} selectLobby={this.selectLobby}/>} 
-                header={`Welcome ${name}` + `${privilege === 3 ? " -- Admin" : ""}`}>
+                header={`Welcome ${name} ${privilege === 3 ? " -- Admin" : ""}`}>
                     <NameModal open={name.length === 0 } onSubmit={this.selectName}/>
                     <Divider style={style.divider}/>
                         <MessageBox 

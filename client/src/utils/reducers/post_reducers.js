@@ -9,5 +9,5 @@ export default (state = initState, action) => {
             return { ...state, posts: action.payload.posts };
         default:
             return { ...state }
-    };
+    }
 };

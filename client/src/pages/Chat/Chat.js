@@ -2,7 +2,6 @@
 //--------------------------------------------------------
 import React, { Component } from "react";
 import { Container, Grid } from "semantic-ui-react";
-import Panel from "../../components/Panel";
 import ChatBox from "../../components/App/ChatBox";
 import "./Chat.css";
 
@@ -13,11 +12,7 @@ export default class Chat extends Component {
     state = {}
 
     // render DOM
-    render(){
-
-        const name = this.state.name;
-        const messages = this.state.messages;
-
+    render() {
         return(
             <Container>
                 <Grid className="Chat-wrapper">

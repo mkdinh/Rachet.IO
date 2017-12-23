@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Modal, Form } from 'semantic-ui-react'
+import { Modal } from 'semantic-ui-react'
 import NameForm from "../Form/Name";
 
 const ChatName = (props) =>
