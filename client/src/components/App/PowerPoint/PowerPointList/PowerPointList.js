@@ -9,11 +9,9 @@ const style = {
 
 export default (props) => {
 
-    const loading = props.list.length === 0;
-
     return (
         <div>
-            <Panel loading={loading} style={style.panel}>
+            <Panel style={style.panel}>
                 <List list={props.list}/>
                 <PowerPointForm/>
             </Panel>

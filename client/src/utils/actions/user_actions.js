@@ -3,6 +3,15 @@
 import API from "../api";
 
 export default {
+    selectname: (name) => {
+        return (
+            dispatch => dispatch({
+                type: "SELECT_NAME",
+                payload: { name: name }
+            })
+        );
+    },
+
     login: (user) => {
         return (
             dispatch => API.User.login(user)

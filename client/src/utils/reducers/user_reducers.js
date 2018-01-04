@@ -9,8 +9,9 @@ const initState = {
 
 export default (state = initState, action) => {
     switch(action.type){
+        case "SELECT_NAME": 
+            return  { ...state, name: action.payload.name };
         case "LOGIN":
-            console.log(action)
             return { ...state, login: true, name: action.payload.name, privilege: action.payload.privilege };
         case "LOGOUT":
             return { ...initState };

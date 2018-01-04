@@ -28,6 +28,10 @@ export default (Component) => {
         componentDidMount() {
             socketListener(this.socket, this);
         }
+
+        componentWillUnmount() {
+            this.socket.disconnect();
+        }
            
         connectToLobby = (name) => this.socket.emit("connect to lobby", name)
         

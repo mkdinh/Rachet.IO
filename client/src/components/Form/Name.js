@@ -14,7 +14,6 @@ class NameForm extends Component {
     }
 
     handleChange = ev => {
-        console.log(this.props)
         const { value, name } = ev.target;
         this.setState({[name]: value})
     }

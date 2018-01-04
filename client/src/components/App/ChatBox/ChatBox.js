@@ -30,15 +30,20 @@ class ChatBoxApp extends Component {
     }
     
     componentDidMount(){
+        let name = this.props.user.name;
+        if(name) {
+            this.props.connectToLobby(name)
+        };
         this.props.dispatch(actions.Room.findAll())
-        .then(db => null)
+        .then(db => {
+        })
         .catch(err => console.log(err));
     }
 
     // handle name submit
     selectName = (name) => {
         this.props.connectToLobby(name)
-        this.setState({name: name})
+        this.props.dispatch(actions.User.selectname(name));
     }
 
     selectRoom = (id) =>         
@@ -90,7 +95,7 @@ class ChatBoxApp extends Component {
 
     // render DOM
     render(){
-        const name = this.state.name;
+        const name = this.props.user.name;
         const roomList = this.props.roomList || [];
         const cRoom = this.props.cRoom || false;
         const cUser = this.props.cUser || {};
