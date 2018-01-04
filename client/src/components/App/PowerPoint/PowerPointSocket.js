@@ -31,6 +31,10 @@ export default (Component) => {
             });
         };
 
+        componentWillUnmount() {
+            this.socket.disconnect();
+        };
+
         emitCSlide = (itemId, cb) => {
             this.setState({ cSlide: itemId }, cb);
             this.socket.emit("update-current-slide", { itemId: itemId })

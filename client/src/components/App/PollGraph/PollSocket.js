@@ -23,6 +23,10 @@ export default (Component) => {
                         
                 })
             });
+        };
+
+        componentWillUnmount() {
+            this.socket.disconnect();
         }
            
         emitUpdate = (id) => this.socket.emit("update-poll", { id: id });

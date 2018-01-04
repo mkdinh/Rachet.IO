@@ -112,11 +112,6 @@ io.of("/chat").on("connection", socket => {
         socket.user.connect = false;
         updateRoster();
     });
-
-    socket.on("update-poll", () => {
-        console.log("hey")
-        poll.emit("update-poll")
-    })
 });
 
 io.of("/poll").on("connection", socket => {

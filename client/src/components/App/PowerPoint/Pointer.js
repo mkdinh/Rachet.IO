@@ -2,10 +2,11 @@ import React from "react";
 import { Grid, Button } from "semantic-ui-react";
 
 const style = {
-    buttonWrapper: { position: "fixed", bottom: "1rem", left: 0, width: "100%" },
+    buttonWrapper: { position: "fixed", bottom: "1rem", left: 0, width: "100%", display: "flex" },
     prevButton: { float: "left", margin: "1rem" },
     nextButton: { float: "right", margin: "1rem" },
-    note: { fontSize: "2rem", padding: "1rem" }
+    note: { fontSize: "2rem", padding: "1rem" },
+    index: { display: "flex", flexGrow: 2, justifyContent: "center", alignItems: "center", fontSize: "1rem" }
 }
 
 export default (props) => 
@@ -16,6 +17,8 @@ export default (props) =>
             icon="left chevron"
             style={style.prevButton}
             onClick={props.prevSlide}/>
+            
+            <span style={style.index}>{props.index + 1} / {props.length}</span>
 
             <Button circular
             size="massive"

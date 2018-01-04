@@ -94,7 +94,6 @@ class Slides extends Component {
 
     selectSlide  = (itemId) => {
         this.props.emitCSlide(itemId, this.updateCSlide)
-        // this.setState({ cSlide: itemId }, this.updateCSlide)
     };
 
     addNote = ev => {
@@ -103,7 +102,6 @@ class Slides extends Component {
         let allIDS = slides.map(el => el.itemId);
         let index = allIDS.indexOf(this.props.cSlide);
         slides[index] = { ...slides[index], note: value };
-        console.log(slides[index])
         this.setState({ slides: slides });
         
     };
@@ -127,9 +125,15 @@ class Slides extends Component {
 
     render() {
 
+        let index = 0;
         const { slides } = this.state;
+        const length = slides.length;
         const cSlide = this.props.cSlide;
         const cSlideData = slides.filter(el => el.itemId === cSlide)[0];
+        if(cSlideData) {
+            index = slides.map(el => el.itemId).indexOf(cSlideData.itemId);
+        }
+
         return (
             <div>
                 <Responsive minWidth={768}>
@@ -165,9 +169,11 @@ class Slides extends Component {
                         </Grid.Row>
                     </Grid>
                 </Responsive>
-                {console.log(cSlideData ? cSlideData.notes : null)}
                 <Responsive maxWidth={768}>
                     <Pointer
+                    itemId={cSlideData ? cSlideData.itemId : null}
+                    index={index}
+                    length={length}
                     note={cSlideData ? cSlideData.note : null}
                     prevSlide={this.prevSlide}
                     nextSlide={this.nextSlide}/>
