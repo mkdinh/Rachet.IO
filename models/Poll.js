@@ -25,7 +25,7 @@ const PollSchema = new Schema({
         type: Schema.Types.Mixed,
         default: {
             axisLabels: { x: "", y: "" },
-            scale: { width: 0.75, height: 1.05, radius: 0.35, innerRadius: 0 },
+            scale: { width: 0.75, height: 0.90, radius: 0.35, innerRadius: 0 },
             axes: true,
             grid: true
         }

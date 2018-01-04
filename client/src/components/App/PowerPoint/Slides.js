@@ -120,7 +120,7 @@ class Slides extends Component {
     updatePowerPoint = cb => {
         API.PowerPoint.updateOne(this.state)
         .then(db => { 
-           alert("Successfully updated!")
+            if(cb) cb();
         })
         .catch(err => console.log(err));
     };
