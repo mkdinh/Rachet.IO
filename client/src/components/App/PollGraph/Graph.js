@@ -16,7 +16,7 @@ export default (props) => {
     }
 
     const displayGraph = ({ type, data, options }) => {
-        let {grid, axes, scale, axisLabels, padding } = options;
+        let {grid, axes, scale, axisLabels } = options;
 
         let viewport = window.screen;
         switch(type) {

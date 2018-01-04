@@ -134,6 +134,7 @@ class AdminView extends Component {
                 {this.props.cPoll ? 
                     <Graph
                     admin
+                    toggleLoading={this.toggleLoading}
                     handleReturn={this.handleReturn}
                     active={this.props.cPoll.options.active}
                     loading={this.state.loading} 

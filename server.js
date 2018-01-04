@@ -33,8 +33,15 @@ const indexFile = path.join(__dirname, "./client/build/");
 // allow express to use static files from yarn build
 app.use(express.static(indexFile));
 
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+app.use(bodyParser.json({
+    limit: '50mb'
+}));
+app.use(bodyParser.urlencoded({
+    limit: '50mb',
+    extended: true,
+    parameterLimit: 10000000000000000000
+}));
+
 app.use(cookieParser());
 
 app.use(session({
@@ -116,6 +123,13 @@ io.of("/poll").on("connection", socket => {
 
     const poll = io.of("/poll");
     socket.on("update-poll", id => poll.emit("update-poll", id));
+})
+
+io.of("/powerpoint").on("connection", socket => {
+
+    const pp = io.of("/powerpoint");
+    socket.on("update-current-slide", itemId => pp.emit("update-current-slide", itemId));
+    socket.on("toggle-modal", itemId => pp.emit("toggle-modal", itemId));
 })
 
 // Start Server

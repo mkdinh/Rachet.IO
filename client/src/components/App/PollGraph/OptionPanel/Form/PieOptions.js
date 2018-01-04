@@ -1,7 +1,6 @@
 import React from "react";
 import { Form } from "semantic-ui-react";
 import ScaleForm from "./ScaleForm";
-import AxesForm from "./AxesForm";
 
 const style = {
     form: { margin: "1rem 0" }

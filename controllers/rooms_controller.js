@@ -29,9 +29,7 @@ module.exports = {
         .catch(err => console.log(err));
     },
 
-    deleteOne: (req, res) => {
-        console.log(req.body)
-        
+    deleteOne: (req, res) => {        
         db.Room.findByIdAndRemove(req.params.id)
         .then(doc => 
             db.Room.find({})

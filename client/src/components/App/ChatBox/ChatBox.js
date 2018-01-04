@@ -24,14 +24,14 @@ const style = {
 class ChatBoxApp extends Component {
 
     state = {
-        name: "Mike",
-        cRoom: false,
+        name: "",
+        cRoom: "lobby",
         loading: false
     }
     
     componentDidMount(){
         this.props.dispatch(actions.Room.findAll())
-        .then(db => this.selectName("Mike"))
+        .then(db => null)
         .catch(err => console.log(err));
     }
 
@@ -130,7 +130,7 @@ class ChatBoxApp extends Component {
                             return (
                                 <span key={user.id} 
                                 style={user.id === cUser.id ? style.cUser : style.user}>
-                                    {user.name} {user.id}
+                                    {user.name}
                                 </span>
                             )
                         })}

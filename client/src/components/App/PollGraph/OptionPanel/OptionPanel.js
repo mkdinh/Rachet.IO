@@ -4,7 +4,7 @@ import { BarOptions, PieOptions } from "./Form";
 import { Button, Checkbox } from "semantic-ui-react";
 
 const style = {
-    wrapper: { margin: "0 1rem 1rem", width: "20vw" },
+    wrapper: { margin: "0 1rem 1rem", width: "25vw" },
     options: { margin: "1rem 0 0 0"}
 }
 

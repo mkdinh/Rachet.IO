@@ -6,7 +6,7 @@ import DisplayRooms from "./DisplayRooms";
 import LoaderHOC from "../../Loader";
 
 const style = {
-    wrapper: { height: "50vh", overflow: "scroll", padding: "0.5rem 1rem" },
+    wrapper: { height: "45vh", overflow: "scroll", padding: "0.5rem 1rem" },
     poster: { fontWeight: "bold" }
 };
 

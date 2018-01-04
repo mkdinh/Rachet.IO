@@ -6,20 +6,24 @@ const Schema = mongoose.Schema;
 // Create new User Schema
 //--------------------------------------------------------
 const PowerPointSchema = new Schema({
-    name: {
+    title: {
         type: String,
         require: true
     },
 
-    data: {
+    slides: {
         type: Schema.Types.Mixed,
-        require: true
+        default: []
     },
 
-    created_by: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-        require: true
+    cSlide: {
+        type: Number,
+        default: 0
+    },
+
+    created_timestamp: {
+        type: Date,
+        default: Date.now
     }
 });
 

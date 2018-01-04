@@ -25,7 +25,7 @@ class Navbar extends Component {
 
   handleLogout = () => {
     this.props.dispatch(actions.User.logout())
-    .then(msg => alert(msg))
+    .then(msg => null)
     .catch(err => console.log(err));
   }
 
@@ -42,8 +42,8 @@ class Navbar extends Component {
           <Menu pointing secondary>
             <Menu.Item data-name="Chat Box" icon="chat" link active={activeItem === 'Chat Box'} onClick={this.handleItemClick} />
             <Menu.Item data-name="Poll" icon="bar graph" link active={activeItem === "Poll"} onClick={this.handleItemClick} />
-            <Menu.Item data-name="Socket Canvas" icon="game" link active={activeItem === "Socket Canvas"} onClick={this.handleItemClick} />
-            <Menu.Item data-name="Powerpoint" icon="file powerpoint outline" link active={activeItem === "Powerpoint"} onClick={this.handleItemClick} />
+            {/* <Menu.Item data-name="Socket Canvas" icon="game" link active={activeItem === "Socket Canvas"} onClick={this.handleItemClick} /> */}
+            <Menu.Item data-name="PowerPoint" icon="file powerpoint outline" link active={activeItem === "PowerPoint"} onClick={this.handleItemClick} />
 
               {privilege === 3 ? 
                 <Menu.Menu position='right'>
@@ -66,8 +66,8 @@ class Navbar extends Component {
           <Menu pointing secondary>
             <Menu.Item name="Chat Box" link active={activeItem === 'Chat Box'} onClick={this.handleItemClick} />
             <Menu.Item name="Poll" link active={activeItem === "Poll"} onClick={this.handleItemClick} />
-            <Menu.Item name="Socket Canvas" link active={activeItem === "Socket Canvas"} onClick={this.handleItemClick} />
-            <Menu.Item name="Powerpoint" link active={activeItem === "Powerpoint"} onClick={this.handleItemClick} />
+            {/* <Menu.Item name="Socket Canvas" link active={activeItem === "Socket Canvas"} onClick={this.handleItemClick} /> */}
+            <Menu.Item name="PowerPoint" link active={activeItem === "PowerPoint"} onClick={this.handleItemClick} />
 
               {privilege === 3 ? 
                 <Menu.Menu position='right'>

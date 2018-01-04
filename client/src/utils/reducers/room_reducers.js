@@ -2,7 +2,7 @@
 //--------------------------------------------------------
 const initState = {
     list: [],
-    cRoom: {}
+    cRoom: false
 };
 
 export default (state = initState, action) => {
