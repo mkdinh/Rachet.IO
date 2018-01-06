@@ -43,9 +43,9 @@ class Slides extends Component {
         switch(ev.which) {
             case 27: 
                 return this.props.emitModal()
-            case 37:
+            case 38:
                 return this.prevSlide();
-            case 39: 
+            case 40: 
                 return this.nextSlide();
             default:
                 return null;
