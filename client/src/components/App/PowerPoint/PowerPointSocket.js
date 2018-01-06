@@ -1,7 +1,5 @@
 import React from "react";
 import io from "socket.io-client";
-import socketListener from "./SocketEvents";
-import actions from "../../../utils/actions";
 import { connect } from "react-redux";
 
 export default (Component) => {

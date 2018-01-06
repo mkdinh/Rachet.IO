@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Icon } from "semantic-ui-react";
-import SlideList from "./SlideList";
 
 const style = {
     button: { 

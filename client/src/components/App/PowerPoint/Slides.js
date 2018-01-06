@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Responsive, Button } from "semantic-ui-react";
+import { Grid, Responsive } from "semantic-ui-react";
 import { withRouter } from "react-router-dom";
 import API from "../../../utils/api";
 import Socket from "./PowerPointSocket";
@@ -48,7 +48,7 @@ class Slides extends Component {
             case 39: 
                 return this.nextSlide();
             default:
-                null
+                return null;
         }
     }
 
@@ -85,6 +85,16 @@ class Slides extends Component {
         let updatedSlides = [ ...this.state.slides, ...slides ];
         this.setState({ slides: updatedSlides }, this.updatePowerPoint);
     };
+
+    updateSlide = (slide, itemId) => {
+        let slides = [ ...this.state.slides ];
+        let allIDS = slides.map(el => el.itemId);
+        let index = allIDS.indexOf(itemId);
+        slide.note = slides[index].note;
+        slides[index] = slide;
+        this.props.emitCSlide(slide.itemId);
+        this.setState({ slides: slides }, this.updatePowerPoint);
+    }
 
     deleteSlide = (itemId) => {
         let slides = [ ...this.state.slides ];
@@ -149,6 +159,7 @@ class Slides extends Component {
                                 slides={slides} 
                                 cSlide={cSlide}
                                 addSlides={this.addSlides}
+                                updateSlide={this.updateSlide}
                                 deleteSlide={this.deleteSlide}
                                 selectSlide={this.selectSlide}/>
                             </Grid.Column>

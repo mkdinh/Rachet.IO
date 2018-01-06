@@ -33,7 +33,13 @@ class PowerPoint extends Component {
 
         return(
             <Container style={style.wrapper}>
-                <List list={list}/>
+                {this.props.admin ? 
+                    <List list={list}/> 
+                : 
+                this.props.login ? 
+                <h1> Change to Admin View to edit PowerPoint </h1>
+                :
+                <h1> Login to access PowerPoint </h1>}
             </Container>
         )
     }
@@ -42,7 +48,8 @@ class PowerPoint extends Component {
 const mapStateToProps = (state) => {
     return ({
         list: state.powerpoint.list,
-        privilege: state.user.login.privilege
+        login: state.user.login,
+        admin: state.user.adminView
     })
 }
 

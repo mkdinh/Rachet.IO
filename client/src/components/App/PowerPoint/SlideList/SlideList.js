@@ -19,6 +19,7 @@ export default (props) =>
             slide={slide}
             deleteSlide={props.deleteSlide}
             selectSlide={props.selectSlide}
+            updateSlide={props.updateSlide}
             cSlide={props.cSlide === slide.itemId}/>
         )}
         <SlideForm addSlides={props.addSlides}/>

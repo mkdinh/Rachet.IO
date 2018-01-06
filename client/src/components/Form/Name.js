@@ -3,8 +3,11 @@ import { Form, Segment, Button } from 'semantic-ui-react'
 
 const style = {
     form: { textAlign: "center" },
-    input: { margin: "1rem", width: "75%" },
-    error: { borderRadius: 0 }
+    input: { flexGrow: 1 },
+    field: { margin: "0 1rem", flexGrow: 1 },
+    button: { margin: "1rem" },
+    error: { borderRadius: 0 },
+    group: { display: "flex", justifyContent: "center", alignItems: "center" }
 }
 
 class NameForm extends Component {
@@ -36,15 +39,19 @@ class NameForm extends Component {
         return (
             <Form style={style.form}>
                 {error ? <Segment inverted style={style.error} color="red" content={error}/> : null}
-                <Form.Group inline>
-                    <Form.Field 
-                    style={style.input}
-                    control="input"
-                    name="name"
-                    value={name} 
-                    onChange={this.handleChange}/>
-                    <Button compact content="Submit" onClick={this.handleSubmit}/>
-                </Form.Group>
+                <div style={style.group}>
+                    <Form.Field style={style.field}>
+                        <input 
+                        style={style.input}
+                        name="name"
+                        value={name} 
+                        onChange={this.handleChange}/>
+                    </Form.Field>
+                    <Button compact 
+                    style={style.button}
+                    content="Submit" 
+                    onClick={this.handleSubmit}/>
+                </div>
             </Form>
         )
     }

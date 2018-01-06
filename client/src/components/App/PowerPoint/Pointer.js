@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Button } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 
 const style = {
     buttonWrapper: { position: "fixed", bottom: "1rem", left: 0, width: "100%", display: "flex" },

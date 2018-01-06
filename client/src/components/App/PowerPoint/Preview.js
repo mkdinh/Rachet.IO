@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Grid, Image } from "semantic-ui-react";
+import React from "react";
+import { Image } from "semantic-ui-react";
 
 const style = {
     wrapper: {
