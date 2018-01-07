@@ -51,14 +51,7 @@ class PollForm extends Component {
                     name='type'
                     value='pie'
                     checked={this.state.type === 'pie'}
-                    onChange={this.handleCheckbox}/>
-                    <Form.Checkbox
-                    radio
-                    label='Scatter'
-                    name='type'
-                    value='scatter'
-                    checked={this.state.type === 'scatter'}
-                    onChange={this.handleCheckbox}/>                   
+                    onChange={this.handleCheckbox}/>              
                 </Form.Group>
 
                 <Button fluid

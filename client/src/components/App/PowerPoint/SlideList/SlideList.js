@@ -22,5 +22,7 @@ export default (props) =>
             updateSlide={props.updateSlide}
             cSlide={props.cSlide === slide.itemId}/>
         )}
-        <SlideForm addSlides={props.addSlides}/>
+        <SlideForm 
+        length={props.slides.length}
+        addSlides={props.addSlides}/>
     </div>

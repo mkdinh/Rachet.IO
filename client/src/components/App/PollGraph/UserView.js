@@ -81,7 +81,7 @@ class UserView extends Component {
             : 
                 <div>
                     <Header as="h1">
-                            Waiting for Mike to activate poll
+                            Waiting for admin to activate poll
                             <Icon style={style.loading} name="spinner" loading/>
                     </Header>
                 </div>

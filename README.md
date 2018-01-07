@@ -2230,3 +2230,15 @@ If you have ideas for more “How To” recipes that should be on this page, [le
 =======
 # Rachet.IO
 
+## Initialize npm
+- run "npm install"
+
+## initialize yarn
+- set client as cwd by running "cd client/"
+- run "yarn install"
+
+## Initialize admin user
+- open "script/seeds"
+- change "name" and "password" key in "userSeed" variable
+- run "npm run seed"
+

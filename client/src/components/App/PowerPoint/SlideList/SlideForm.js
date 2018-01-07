@@ -20,25 +20,30 @@ export default (props) => {
     const addSlide = (ev) => {
         let files = ev.target.files;
         let slides = [];
+        let count = 0;
+        let handleLoadEnd = (ev, file) => {
+            let itemId = Math.floor(Math.random() * 10000);
+            let slide = {
+                name: file.name,
+                dataURL: "data:image/jpeg;base64," + btoa(ev.target.result),
+                itemId: itemId,
+                note: "",
+                orderId: file.orderId
+            };             
+            slides.push(slide);
+            
+            if(slides.length === files.length) {
+                slides.sort( (a, b) => a.orderId - b.orderId);
+                props.addSlides(slides);
+            };
+        };
+
         // read each files for dataURL and return image data object
         if(files.length > 0){
             for(let file of files) {
+                file.orderId = count++; 
                 let reader = new FileReader();
-                reader.onloadend = ev => {
-                    let itemId = Math.floor(Math.random() * 10000);
-                    let slide = {
-                        name: file.name,
-                        dataURL: "data:image/jpeg;base64," + btoa(ev.target.result),
-                        itemId: itemId,
-                        note: ""
-                    };             
-                    slides.push(slide);
-                    
-                    if(slides.length === files.length) {
-                        props.addSlides(slides);
-                    };
-                }
-
+                reader.onloadend = ev => handleLoadEnd(ev, file);
                 reader.readAsBinaryString(file)
             };
         };

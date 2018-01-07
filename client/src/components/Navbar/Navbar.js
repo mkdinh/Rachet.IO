@@ -13,6 +13,13 @@ const style = {
 class Navbar extends Component {
   state = { activeItem: 'Chat Box' }
 
+  componentDidMount() {
+    let location = this.props.location.pathname.replace("/", "");
+    this.setState({
+      activeItem: location
+    });
+  };
+
   handleItemClick = (e, { name }) => {
     if(!name){
       name = e.currentTarget.getAttribute("data-name");
