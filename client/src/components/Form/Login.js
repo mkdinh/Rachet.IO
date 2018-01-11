@@ -9,8 +9,8 @@ const style = {
 
 class LoginForm extends Component {
     state = {
-        email: "mkdinh94@gmail.com",
-        password: "123456",
+        email: "guest@sample.com",
+        password: "password",
         error: "",
         passed: false,
         loading: false

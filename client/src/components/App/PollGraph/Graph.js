@@ -34,7 +34,7 @@ export default (props) => {
                         axisLabels={axisLabels}/>
             case "pie":
                 return <PieChart labels
-                    size={props.width * scale.radius } 
+                    size={viewport.width > 768 ?  props.width * scale.radius : props.width * 0.90} 
                     innerHoleSize={props.width * scale.radius * scale.innerRadius}
                     width={props.width * scale.width}
                     height={props.height * scale.height}
